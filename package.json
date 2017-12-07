@@ -1,0 +1,31 @@
+{
+  "name": "razorpay-react-demo",
+  "version": "1.0.0",
+  "description": "A razorpay demo application to checkout payments and refunds from and to client",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashank7200/razorpay-react-demo.git"
+  },
+  "keywords": [
+    "razorpay",
+    "payment",
+    "refunds",
+    "demo",
+    "nodejs",
+    "reactjs"
+  ],
+  "author": "Shashank Shekhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shashank7200/razorpay-react-demo/issues"
+  },
+  "homepage": "https://github.com/shashank7200/razorpay-react-demo#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
