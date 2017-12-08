@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: path.join(__dirname, "src", "index"),
@@ -12,7 +12,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /.jsx?$/,
@@ -30,8 +30,8 @@ module.exports = {
       inject: "body"
     }),
     new Dotenv({
-      path: './.env',
-      safe: false 
+      path: "./.env",
+      safe: false
     })
   ],
   resolve: {
@@ -40,5 +40,11 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     publicPath: "/"
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };
