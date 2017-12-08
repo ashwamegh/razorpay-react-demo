@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server to interqact with the razorpay sdk",
+  "main": "app.js",
+  "scripts": {
+    "test": "node test",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "twitter",
+    "azure",
+    "sentiment",
+    "analysis"
+  ],
+  "author": "Shashank Shekhar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "razorpay": "^1.6.1"
+  }
+}
