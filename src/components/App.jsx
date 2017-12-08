@@ -13,10 +13,6 @@ class App extends Component {
 
     this.paymentHandler = this.paymentHandler.bind(this);
     this.refundHandler = this.refundHandler.bind(this);
-    // this.rzp = new Razorpay({
-    //   key_id: process.env.key_id,
-    //   key_secret: process.env.key_secret
-    // });
   }
 
   paymentHandler(e) {
@@ -26,14 +22,32 @@ class App extends Component {
     const self = this;
     const options = {
       key: process.env.RAZOR_PAY_TEST_KEY,
-      amount: payment_amount*100, // 2000 paise = INR 20
+      amount: payment_amount*100,
       name: 'Payments',
       description: 'Donate yourself some time',
+
       handler(response) {
-        self.setState({
-          refund_id: response.razorpay_payment_id
+        const paymentId = response.razorpay_payment_id;
+        const url = process.env.URL+'/api/v1/rzp_capture/'+paymentId+'/'+payment_amount;
+        // Using my server endpoints to capture the payment
+        fetch(url, {
+          method: 'get',
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+          }
+        })
+        .then(resp =>  resp.json())
+        .then(function (data) {
+          console.log('Request succeeded with JSON response', data);
+          self.setState({
+            refund_id: response.razorpay_payment_id
+          });
+        })
+        .catch(function (error) {
+          console.log('Request failed', error);
         });
       },
+
       prefill: {
         name: 'Shashank Shekhar',
         email: 'ss@localtrip.in',
@@ -48,31 +62,29 @@ class App extends Component {
     const rzp1 = new Razorpay(options);
 
     rzp1.open();
-
-    // const orderDetails = {
-    //   amount: payment_amount, //Fetches the amount from react state - required
-    //   currency: "INR", // currently INR is supported only - optional
-    //   receipt: 12333, // Your system order reference id. - required
-    //   payment_capture: true, //Whether the payment should be captured automatically or not. Default false
-    //   notes: "Testing razopay payments" // A key-value pair - optional
-    // };
-
-    // this.rzp.orders
-    //   .create(orderDetails)
-    //   .then(response => {
-    //     console.log("**********Order Created***********");
-    //     console.log(response);
-    //     console.log("**********Order Created***********");
-    //     order_id = response.id;
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
   }
 
   refundHandler(e) {
     e.preventDefault();
     const { refund_id } = this.state;
+    const url = process.env.URL+'/api/v1/rzp_refunds/'+refund_id;
+
+    // Using my server endpoints to initiate the refund
+    fetch(url, {
+      method: 'get',
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      }
+    })
+    .then(resp =>  resp.json())
+    .then(function (data) {
+      console.log('Request succeeded with JSON response', data);
+      alert("Refund Succeeded", )
+    })
+    .catch(function (error) {
+      console.log('Request failed', error);
+    });
+
   }
 
   render() {
