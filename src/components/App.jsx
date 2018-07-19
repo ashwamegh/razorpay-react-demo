@@ -59,7 +59,7 @@ class App extends Component {
         color: '#9D50BB',
       },
     };
-    const rzp1 = new Razorpay(options);
+    const rzp1 = new window.Razorpay(options);
 
     rzp1.open();
   }
