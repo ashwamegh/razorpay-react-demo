@@ -8,7 +8,7 @@ A demo of Razorpay Node Sdk with React.js showcasing the payments and refunds sc
 ## Getting Started
 
 ```bash
-git clone https://github.com/shashank7200/razorpay-react-demo.git
+git clone https://github.com/ashwamegh/razorpay-react-demo.git
 cd razorpay-react-demo
 ```
 
