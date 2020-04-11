@@ -1,6 +1,6 @@
 {
   "name": "razorpay-react-demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A razorpay demo application to checkout payments and refunds from and to client",
   "main": "src/index.js",
   "scripts": {
