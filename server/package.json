@@ -1,23 +1,25 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Server to interqact with the razorpay sdk",
   "main": "app.js",
   "scripts": {
     "test": "node test",
-    "start": "node app.js"
+    "start": "./node_modules/.bin/nodemon app.js"
   },
   "keywords": [
-    "twitter",
-    "azure",
-    "sentiment",
-    "analysis"
+    "razorpay",
+    "payments",
+    "gateway"
   ],
-  "author": "Shashank Shekhar",
+  "author": "Shashank Shekhar <shashank7200@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "razorpay": "^1.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
