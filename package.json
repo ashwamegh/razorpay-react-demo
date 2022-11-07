@@ -42,7 +42,10 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "razorpay": "^1.6.1"
   },
   "engines": {
     "node": "16.x"
