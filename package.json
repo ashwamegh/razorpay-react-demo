@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/shashank7200/razorpay-react-demo/issues"
   },
-  "homepage": "https://github.com/shashank7200/razorpay-react-demo#readme",
+  "homepage": "https://github.com/shashank7200/razorpay-react-demo",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -33,9 +33,10 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "dotenv-webpack": "^1.5.4",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^4.5.2",
     "style-loader": "^0.19.0",
-    "webpack": "^3.10.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "3.3.12",
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
