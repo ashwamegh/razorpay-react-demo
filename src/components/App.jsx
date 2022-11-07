@@ -22,13 +22,13 @@ class App extends Component {
     const self = this;
     const options = {
       key: process.env.RAZOR_PAY_TEST_KEY,
-      amount: payment_amount*100,
+      amount: payment_amount * 100,
       name: 'Payments',
       description: 'Donate yourself some time',
 
       handler(response) {
         const paymentId = response.razorpay_payment_id;
-        const url = process.env.URL+'/api/v1/rzp_capture/'+paymentId+'/'+payment_amount;
+        const url = process.env.URL + '/api/v1/rzp_capture/' + paymentId + '/' + payment_amount;
         // Using my server endpoints to capture the payment
         fetch(url, {
           method: 'get',
@@ -36,24 +36,24 @@ class App extends Component {
             "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
           }
         })
-        .then(resp =>  resp.json())
-        .then(function (data) {
-          console.log('Request succeeded with JSON response', data);
-          self.setState({
-            refund_id: response.razorpay_payment_id
+          .then(resp => resp.json())
+          .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            self.setState({
+              refund_id: response.razorpay_payment_id
+            });
+          })
+          .catch(function (error) {
+            console.log('Request failed', error);
           });
-        })
-        .catch(function (error) {
-          console.log('Request failed', error);
-        });
       },
 
       prefill: {
         name: 'Shashank Shekhar',
-        email: 'ss@localtrip.in',
+        email: 'example@email.com',
       },
       notes: {
-        address: 'Goa,India',
+        address: 'Patna,India',
       },
       theme: {
         color: '#9D50BB',
@@ -67,7 +67,7 @@ class App extends Component {
   refundHandler(e) {
     e.preventDefault();
     const { refund_id } = this.state;
-    const url = process.env.URL+'/api/v1/rzp_refunds/'+refund_id;
+    const url = process.env.URL + '/api/v1/rzp_refunds/' + refund_id;
 
     // Using my server endpoints to initiate the refund
     fetch(url, {
@@ -76,14 +76,14 @@ class App extends Component {
         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
       }
     })
-    .then(resp =>  resp.json())
-    .then(function (data) {
-      console.log('Request succeeded with JSON response', data);
-      alert("Refund Succeeded", )
-    })
-    .catch(function (error) {
-      console.log('Request failed', error);
-    });
+      .then(resp => resp.json())
+      .then(function (data) {
+        console.log('Request succeeded with JSON response', data);
+        alert("Refund Succeeded",)
+      })
+      .catch(function (error) {
+        console.log('Request failed', error);
+      });
 
   }
 
