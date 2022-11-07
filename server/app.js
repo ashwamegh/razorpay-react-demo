@@ -13,8 +13,8 @@ const instance = new Razorpay({
 
 app.all('/*', (req, res, next) => {
 
-  const allowedReferers = ['http://localhost:8080', 'https://ashwamegh.github.io/razorpay-react-demo'];
-  console.log("req.headers.origin", req.headers.origin);
+  const allowedReferers = ['http://localhost:8080', 'https://ashwamegh.github.io'];
+  // console.log("req.headers.origin", req.headers.origin);
   if (allowedReferers.indexOf(req.headers.origin) !== -1) {
     res.header('Access-Control-Allow-Origin', req.headers.origin);
   } else {
