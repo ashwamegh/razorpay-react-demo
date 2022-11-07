@@ -39,7 +39,13 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
-    publicPath: "/"
+    static: path.join(__dirname, 'public/'),
+    devMiddleware: {
+      publicPath: "/"
+    },
+    port: 8080,
+    hot: "only",
+    open: true
   },
   node: {
     console: true,
