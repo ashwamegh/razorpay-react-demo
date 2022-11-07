@@ -20,6 +20,8 @@ cd razorpay-react-demo
 
 ### For Frontend
 
+> Note: make sure you have added Razorpay script `<script src="https://checkout.razorpay.com/v1/checkout.js"></script>` in your HTML file to get the Razorpay constructor reference. For Eg: To access it using `window.Razorpay` or `Razorpay`
+
 ```bash
 npm install or yarn
 touch .env
