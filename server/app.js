@@ -30,6 +30,8 @@ app.all('/*', (req, res, next) => {
   }
 });
 
+console.log("process.env.NODE_ENV")
+
 
 
 app.get('/api/v1/rzp_capture/:payment_id/:amount', (req, res) => {
