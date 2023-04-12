@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "node test",
-    "start": "./node_modules/.bin/nodemon app.js"
+    "dev": "./node_modules/.bin/nodemon app.js",
+    "start": "node app.js"
   },
   "keywords": [
     "razorpay",
